@@ -15,7 +15,9 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     RecyclerView categoryRecycler, courseRecycler;
     CategoryAdapter categoryAdapter;
-    CourseAdapter courseAdapter;
+    static CourseAdapter courseAdapter;
+    static List<Course> courseList = new ArrayList<>();
+    static List<Course> fullCourseList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,23 +32,28 @@ public class MainActivity extends AppCompatActivity {
 
         setCategoryRecycler(categoryList);
 
-        List<Course> courseList = new ArrayList<>();
         courseList.add(new Course(
                 1,
+                3,
                 "java_2_2_",
                 "Java",
                 "10.12.2022",
                 "starter",
                 "#424345",
-                "It is a good course to learn java developing"));
+                "It is a good course to learn java developing")
+        );
         courseList.add(new Course(
                 2,
+                3,
                 "python_3",
                 "Python",
                 "11.12.2022",
                 "beginner",
                 "#9FA52D",
-                "It is a good course to learn python developing"));
+                "It is a good course to learn python developing")
+        );
+
+        fullCourseList.addAll(courseList);
 
         setCourseRecycler(courseList);
     }
@@ -55,11 +62,11 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(
                 this,
                 RecyclerView.HORIZONTAL,
-                false);
+                false
+        );
 
         courseRecycler = findViewById(R.id.courseRecycler);
         courseRecycler.setLayoutManager(layoutManager);
-
         courseAdapter = new CourseAdapter(this, courseList);
         courseRecycler.setAdapter(courseAdapter);
     }
@@ -68,12 +75,29 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(
                 this,
                 RecyclerView.HORIZONTAL,
-                false);
+                false
+        );
 
         categoryRecycler = findViewById(R.id.categoryRecyclerView);
         categoryRecycler.setLayoutManager(layoutManager);
-
         categoryAdapter = new CategoryAdapter(this, categoryList);
         categoryRecycler.setAdapter(categoryAdapter);
+    }
+
+    public static void showCoursesByCategory(int category) {
+        courseList.clear();
+        courseList.addAll(fullCourseList);
+
+        List<Course> filterCourses = new ArrayList<>();
+
+        for (Course c : courseList) {
+            if (c.getCategory() == category)
+                filterCourses.add(c);
+        }
+
+        courseList.clear();
+        courseList.addAll(filterCourses);
+
+        courseAdapter.notifyDataSetChanged();
     }
 }

@@ -19,7 +19,6 @@ import com.itech.e_commerce.CoursePage;
 import com.itech.e_commerce.R;
 import com.itech.e_commerce.model.Course;
 import org.jetbrains.annotations.NotNull;
-
 import java.util.List;
 
 public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseViewHolder> {
@@ -41,16 +40,21 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
     }
 
     @Override
-    public void onBindViewHolder(@NonNull @NotNull CourseAdapter.CourseViewHolder holder, @SuppressLint("RecyclerView") int position) {
+    public void onBindViewHolder(
+            @NonNull @NotNull CourseAdapter.CourseViewHolder holder,
+            @SuppressLint("RecyclerView") int position) {
         holder.courseBg.setCardBackgroundColor(Color.parseColor(courses.get(position).getColor()));
 
-        int imageId = context.getResources().getIdentifier("ic_" + courses.get(position).getImg(), "drawable", context.getPackageName());
-        holder.courseImage.setImageResource(imageId);
+        int imageId = context.getResources().getIdentifier(
+                "ic_" + courses.get(position).getImg(),
+                "drawable",
+                context.getPackageName()
+        );
 
+        holder.courseImage.setImageResource(imageId);
         holder.courseTitle.setText(courses.get(position).getTitle());
         holder.courseDate.setText(courses.get(position).getDate());
         holder.courseLevel.setText(courses.get(position).getLevel());
-
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

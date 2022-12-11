@@ -7,10 +7,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import com.itech.e_commerce.MainActivity;
 import com.itech.e_commerce.R;
 import com.itech.e_commerce.model.Category;
 import org.jetbrains.annotations.NotNull;
-
 import java.util.List;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder> {
@@ -34,6 +34,13 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     @Override
     public void onBindViewHolder(@NonNull @NotNull CategoryViewHolder holder, int position) {
         holder.categoryTitle.setText(categories.get(position).getTitle());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity.showCoursesByCategory(categories.get(position).getId());
+            }
+        });
     }
 
     @Override
@@ -42,7 +49,6 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     }
 
     public static final class CategoryViewHolder extends RecyclerView.ViewHolder {
-
         TextView categoryTitle;
         public CategoryViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
