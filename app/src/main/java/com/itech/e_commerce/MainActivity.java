@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
     RecyclerView categoryRecycler, courseRecycler;
     CategoryAdapter categoryAdapter;
     CourseAdapter courseAdapter;
@@ -32,14 +31,31 @@ public class MainActivity extends AppCompatActivity {
         setCategoryRecycler(categoryList);
 
         List<Course> courseList = new ArrayList<>();
-        courseList.add(new Course(1, "java_2_2_", "Java", "10.12.2022", "starter", "#424345", "Test"));
-        courseList.add(new Course(2, "python_3", "Python", "11.12.2022", "beginner", "#9FA52D", "Test"));
+        courseList.add(new Course(
+                1,
+                "java_2_2_",
+                "Java",
+                "10.12.2022",
+                "starter",
+                "#424345",
+                "It is a good course to learn java developing"));
+        courseList.add(new Course(
+                2,
+                "python_3",
+                "Python",
+                "11.12.2022",
+                "beginner",
+                "#9FA52D",
+                "It is a good course to learn python developing"));
 
         setCourseRecycler(courseList);
     }
 
     private void setCourseRecycler(List<Course> courseList) {
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(
+                this,
+                RecyclerView.HORIZONTAL,
+                false);
 
         courseRecycler = findViewById(R.id.courseRecycler);
         courseRecycler.setLayoutManager(layoutManager);
@@ -49,7 +65,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setCategoryRecycler(List<Category> categoryList) {
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(
+                this,
+                RecyclerView.HORIZONTAL,
+                false);
 
         categoryRecycler = findViewById(R.id.categoryRecyclerView);
         categoryRecycler.setLayoutManager(layoutManager);

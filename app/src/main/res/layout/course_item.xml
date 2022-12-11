@@ -27,7 +27,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:srcCompat="@drawable/ic_java_2_2_"
-                    android:id="@+id/courseImage"/>
+                    android:id="@+id/courseImage" android:transitionName="courseImage"/>
             <TextView
                     android:layout_margin="10dp"
                     android:textSize="20sp"
