@@ -38,7 +38,8 @@ public class MainActivity extends AppCompatActivity {
                 "10.12.2022",
                 "starter",
                 "#424345",
-                "It is a good course to learn java developing"));
+                "It is a good course to learn java developing")
+        );
         courseList.add(new Course(
                 2,
                 "python_3",
@@ -46,7 +47,8 @@ public class MainActivity extends AppCompatActivity {
                 "11.12.2022",
                 "beginner",
                 "#9FA52D",
-                "It is a good course to learn python developing"));
+                "It is a good course to learn python developing")
+        );
 
         setCourseRecycler(courseList);
     }
@@ -55,11 +57,11 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(
                 this,
                 RecyclerView.HORIZONTAL,
-                false);
+                false
+        );
 
         courseRecycler = findViewById(R.id.courseRecycler);
         courseRecycler.setLayoutManager(layoutManager);
-
         courseAdapter = new CourseAdapter(this, courseList);
         courseRecycler.setAdapter(courseAdapter);
     }
@@ -68,11 +70,11 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(
                 this,
                 RecyclerView.HORIZONTAL,
-                false);
+                false
+        );
 
         categoryRecycler = findViewById(R.id.categoryRecyclerView);
         categoryRecycler.setLayoutManager(layoutManager);
-
         categoryAdapter = new CategoryAdapter(this, categoryList);
         categoryRecycler.setAdapter(categoryAdapter);
     }

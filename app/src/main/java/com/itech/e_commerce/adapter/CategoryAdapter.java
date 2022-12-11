@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.itech.e_commerce.R;
 import com.itech.e_commerce.model.Category;
 import org.jetbrains.annotations.NotNull;
-
 import java.util.List;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder> {
@@ -42,7 +41,6 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     }
 
     public static final class CategoryViewHolder extends RecyclerView.ViewHolder {
-
         TextView categoryTitle;
         public CategoryViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
