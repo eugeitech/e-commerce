@@ -1,10 +1,13 @@
 package com.itech.e_commerce;
 
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import com.itech.e_commerce.model.Order;
 
 public class CoursePage extends AppCompatActivity {
 
@@ -26,5 +29,11 @@ public class CoursePage extends AppCompatActivity {
         courseDate.setText(getIntent().getStringExtra("courseDate"));
         courseLevel.setText(getIntent().getStringExtra("courseLevel"));
         courseText.setText(getIntent().getStringExtra("courseText"));
+    }
+
+    public void addToCart(View view) {
+        int item_id = getIntent().getIntExtra("courseId", 0);
+        Order.item_id.add(item_id);
+        Toast.makeText(this, "Added", Toast.LENGTH_LONG).show();
     }
 }

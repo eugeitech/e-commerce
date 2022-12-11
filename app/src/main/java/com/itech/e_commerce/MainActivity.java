@@ -1,5 +1,7 @@
 package com.itech.e_commerce;
 
+import android.content.Intent;
+import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -56,6 +58,12 @@ public class MainActivity extends AppCompatActivity {
         fullCourseList.addAll(courseList);
 
         setCourseRecycler(courseList);
+    }
+
+    public void openShoppingCart(View view) {
+        Intent intent = new Intent(this, OrderPage.class);
+        startActivity(intent);
+
     }
 
     private void setCourseRecycler(List<Course> courseList) {
