@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">E-Commerce</string>
+    <string name="sales_icon">Sales</string>
+    <string name="main_activity_text">Main</string>
+    <string name="about_text">About</string>
+    <string name="contacts_text">Contacts</string>
+    <string name="logo_of_app1">Courses</string>
+    <string name="logo_of_app2">App</string>
+    <string name="course_start_date">Start date:</string>
+    <string name="course_level">Level:</string>
+    <string name="course_description">It is a good course to learn java developing</string>
+</resources>
